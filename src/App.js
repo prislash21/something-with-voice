@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
+import Typist from 'react-typist';
 
 const SpeechRecognition =
   window.SpeechRecognition || window.webkitSpeechRecognition;
@@ -55,10 +56,25 @@ function App() {
 
   return (
     <>
-      <h1>Voice Notes</h1>
+      <h1>
+        {' '}
+        <Typist>
+          <Typist.Delay ms={500} />
+          Say something...
+          <Typist.Backspace count={12} delay={200} />
+          anything....
+          <Typist.Backspace count={12} delay={300} />
+          la la la la la ....
+          <Typist.Backspace count={19} delay={300} />
+          hello priota !
+          <Typist.Backspace count={14} delay={300} />
+          what you want . . . . . . . .
+        </Typist>
+      </h1>
       <div className='container'>
         <div className='box'>
           <h2>Current Note</h2>
+          <hr />
           {isListening ? <span>🎙️</span> : <span>🛑🎙️</span>}
           <button onClick={handleSaveNote} disabled={!note}>
             Save Note
@@ -70,6 +86,7 @@ function App() {
         </div>
         <div className='box'>
           <h2>Notes</h2>
+          <hr />
           {savedNotes.map((n) => (
             <p key={n}>{n}</p>
           ))}
