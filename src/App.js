@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import Typist from 'react-typist';
 
+//for the listen to me section
+
 const SpeechRecognition =
   window.SpeechRecognition || window.webkitSpeechRecognition;
 const mic = new SpeechRecognition();
@@ -71,6 +73,7 @@ function App() {
           what you want . . . . . . . .
         </Typist>
       </h1>
+
       <div className='container'>
         <div className='box'>
           <h2>Current Note</h2>
